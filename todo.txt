@@ -1,0 +1,8 @@
+TODO:
+Postgres database in separate volume
+Login/security
+Comments
+Testing
+Javascript to display "successfully uploaded" message without redirect
+Check for .msg or .tar.gz before allowing to submit
+Add datatables library for better display

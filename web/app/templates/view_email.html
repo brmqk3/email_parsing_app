@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block head %}
+<link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<script href="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" rel="stylesheet"></script>
+{% endblock %}
+{% block title %}View Email{% endblock %}
+{% block body %}
+<div>
+    <table>
+    <tr>
+        <th>ID</th>
+        <th>To</th>
+        <th>From</th>
+        <th>Date</th>
+        <th>Subject</th>
+        <th>Message-ID</th>
+    </tr>
+    {% for item in data %}
+    <TR>
+        <TD>{{item[0]}}</TD>
+        <TD>{{item[1]}}</TD>
+        <TD>{{item[2]}}</TD>
+        <TD>{{item[3]}}</TD>
+        <TD>{{item[4]}}</TD>
+        <TD>{{item[5]}}</TD>
+    </TR>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}
