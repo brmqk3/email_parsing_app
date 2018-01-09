@@ -1,12 +1,28 @@
 {% extends "base.html" %}
 {% block title %}Upload Email{% endblock %}
+{% block head %}
+<script>
+$(document).ready( function (){
+    $("#email_form").submit( function(submitEvent) {
+
+        // get the file name, possibly with path (depends on browser)
+        var filename = $("#file_input").val().toLowerCase();
+
+        if (!filename.endsWith('.tar.gz')){
+            alert('file is not a .tar.gz archive');
+            submitEvent.preventDefault();
+            return false;
+        }
+    });
+});
+</script>
+{% endblock %}
 {% block body %}
 <div class="jumbotron">
-  <p class="lead">Please upload a ".tar.gz" file of compressed ".msg" files. Any other format will be rejected.</p>
-  <form action="/form/submit" method="POST" 
-         enctype="multipart/form-data">
-         <input type="file" name="file" />
-         <input type="submit"/>
-      </form>
+    <p class="lead">Please upload a ".tar.gz" file of compressed ".msg" files. Any other format will not work correctly.</p>
+    <form id="email_form" action="/form/submit" method="POST" enctype="multipart/form-data">
+        <input id="file_input" type="file" name="file" />
+        <input type="submit"/>
+    </form>
 </div>
 {% endblock %}

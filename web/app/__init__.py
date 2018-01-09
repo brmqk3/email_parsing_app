@@ -13,13 +13,14 @@ app.config.from_object('config')
 import sqlite3
 
 database = 'email.db'
+
+# In this implementation, Message-ID is unique, and therefore primary key and not null.
 create_email_table = """ CREATE TABLE IF NOT EXISTS email (
-                            id integer PRIMARY KEY,
                             to_address text,
                             from_address text,
                             date text,
                             subject text,
-                            message_id text
+                            message_id text PRIMARY KEY UNIQUE NOT NULL
                         ); """
                         
 try:

@@ -2,4 +2,3 @@
 DEBUG = True
 
 UPLOAD_FOLDER = '/tmp'
-ALLOWED_EXTENSIONS = set(['.msg', '.tar.gz'])
